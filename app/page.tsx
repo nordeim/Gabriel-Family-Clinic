@@ -99,8 +99,8 @@ export default function Home() {
   const locationsRef = useRef<HTMLElement>(null);
   const contactRef = useRef<HTMLElement>(null);
 
-  // Hero typewriter effect
-  const heroTitle = "Compassionate Care for Every Generation";
+  // Hero typewriter effect - Singapore-localized copy
+  const heroTitle = "Care That Feels Like Family";
 
   // Scroll spy for active section tracking
   const { activeSection, scrollProgress } = useScrollSpy({
@@ -188,8 +188,8 @@ export default function Home() {
             <div className="flex items-center gap-3">
               <Heart className="w-10 h-10 text-primary-600" aria-hidden="true" />
               <div>
-                <h1 className="text-xl font-bold text-neutral-900">Gabriel Family Clinic</h1>
-                <p className="text-sm text-neutral-600">Compassionate Care for Seniors</p>
+                <h1 className="text-xl font-bold text-neutral-900" style={{ fontFamily: 'var(--font-display)' }}>Gabriel Family Clinic</h1>
+                <p className="text-sm text-neutral-600" style={{ fontFamily: 'var(--font-sans)' }}>Trusted Family Healthcare in Singapore</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -234,9 +234,11 @@ export default function Home() {
                 >
                   {heroTitle}
                 </h1>
-                <p className="hero-subtitle-enhanced mb-8">
-                  Your trusted partner in family healthcare — serving the Bay Area for 35 years.
-                  Compassionate, personalized care designed for every generation.
+                <p className="hero-subtitle-enhanced mb-4">
+                  Trusted family clinics across Singapore — compassionate, personalised care for newborns, adults and seniors.
+                </p>
+                <p className="text-lg text-neutral-600 mb-8">
+                  Same-day appointments and walk-ins welcome. Find your nearest clinic or book online today.
                 </p>
               </motion.div>
 
@@ -254,13 +256,13 @@ export default function Home() {
                   <Calendar className="w-5 h-5 mr-2" />
                   Book Appointment
                 </button>
-                <button
-                  className="btn-enhanced-secondary btn-enhanced-press"
-                  onClick={() => trackPhoneClick("6269 6681")}
+                <a
+                  href="#locations"
+                  className="btn-enhanced-secondary btn-enhanced-press inline-flex items-center justify-center"
                 >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Contact Us
-                </button>
+                  <MapPin className="w-5 h-5 mr-2" />
+                  Find a Clinic
+                </a>
               </motion.div>
 
               {/* Key Features - Professional Healthcare Trust Indicators */}
@@ -269,11 +271,11 @@ export default function Home() {
                 animate="visible"
                 variants={fadeInUp}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-wrap justify-center gap-6 text-sm font-medium text-primary-700"
+                className="flex flex-wrap justify-center gap-6 text-sm font-medium text-primary-700 mb-8"
               >
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary-600" />
-                  <span>Medicare Accepted</span>
+                  <span>CHAS Accepted</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary-600" />
@@ -283,6 +285,20 @@ export default function Home() {
                   <CheckCircle2 className="w-5 h-5 text-primary-600" />
                   <span>Same-Day Appointments</span>
                 </div>
+              </motion.div>
+
+              {/* Trust Row - Singapore Localized */}
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={fadeInUp}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="text-center text-sm text-neutral-600 font-medium"
+              >
+                <span className="inline-flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-primary-600" />
+                  Board-certified GPs • 3 neighbourhood clinics • Call 6269 6681
+                </span>
               </motion.div>
 
 

@@ -3,43 +3,36 @@
     "Coordinator": {
       "1": {
         "id": "1",
-        "content": "Analyze current address data structure in codebase",
-        "details": "Find all files/components that contain clinic address information. Search for location data, address strings, and contact information throughout the codebase to understand the current structure.",
+        "content": "Review README.md alignment with new design system",
+        "details": "Analyze current README content against the new tri-tone color system, Singapore localization, and aesthetic improvements. Identify gaps and update opportunities.",
         "status": "completed",
         "priority": "high"
       },
       "2": {
         "id": "2",
-        "content": "Update main clinic address to Singapore location",
-        "details": "Replace current main address with: Marsiling Rise, #01-204 Block 131, Singapore 730131. Phone: 6269 6681. Update all references across the codebase.",
+        "content": "Update visual design references and badges",
+        "details": "Add tri-tone color system mentions, Singapore localization badges, and update progress status. Include new aesthetic achievements.",
         "status": "completed",
         "priority": "high"
       },
       "3": {
         "id": "3",
-        "content": "Create additional Singapore clinic addresses",
-        "details": "Generate realistic Singapore clinic addresses for other branches. Include proper Singapore postal codes, building names, and phone numbers to maintain authenticity.",
+        "content": "Update project status and progress metrics",
+        "details": "Update progress from 87.5% (7/8 phases) to reflect Phase 7 completion and new Section 13: UI/UX Aesthetic Improvements addition to architecture document.",
         "status": "completed",
         "priority": "high"
       },
       "4": {
         "id": "4",
-        "content": "Integrate Google Maps for main branch",
-        "details": "Add Google Maps functionality for the main Singapore branch at Marsiling Rise. Include map component with proper styling that matches the current design aesthetic. Use Google Maps API for accurate location display.",
-        "status": "completed",
-        "priority": "high"
-      },
-      "5": {
-        "id": "5",
-        "content": "Update all components with new addresses",
-        "details": "Ensure all contact sections, footer, location pages, and any other components display the updated Singapore addresses correctly with proper formatting.",
+        "content": "Add Singapore localization highlights",
+        "details": "Include CHAS healthcare system references, British English spelling, local trust signals, and cultural adaptation strategies in key features section.",
         "status": "completed",
         "priority": "medium"
       },
-      "6": {
-        "id": "6",
-        "content": "Test and deploy address updates",
-        "details": "Verify all address changes are working correctly, Google Maps integration functions properly, and maintain overall design aesthetics. Deploy updated website.",
+      "5": {
+        "id": "5",
+        "content": "Update documentation references",
+        "details": "Update line counts and references to the architecture document (now 3,132 lines with Section 13). Add UI/UX aesthetic improvements documentation.",
         "status": "completed",
         "priority": "medium"
       }
