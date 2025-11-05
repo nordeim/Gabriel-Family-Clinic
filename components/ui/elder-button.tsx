@@ -64,7 +64,7 @@ const elderButtonVariants = cva(
         ],
       },
       size: {
-        sm: "h-[40px] min-w-[40px] px-4 text-sm", // 40px minimum for small
+        sm: "min-h-[44px] min-w-[44px] px-4 text-sm", // 44px WCAG AAA compliant
         md: "h-[48px] min-w-[48px] px-6 text-base", // 48px recommended
         lg: "h-[56px] min-w-[56px] px-8 text-lg btn-enhanced-lg", // 56px large
         xl: "h-[64px] min-w-[64px] px-10 text-xl btn-enhanced-lg", // 64px extra large

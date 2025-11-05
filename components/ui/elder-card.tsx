@@ -150,25 +150,36 @@ const ElderCard = React.forwardRef<HTMLElement, ElderCardProps>(
 
     const cardClasses = cn(elderCardVariants({ variant, padding, hoverable, className }));
 
-    if (animated) {
-      return (
-        <motion.div
-          // @ts-ignore - motion div with custom component
-          as={Component}
-          ref={ref}
-          className={cardClasses}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: parseFloat(animation.duration.normal) / 1000,
-            ease: animation.easing.elderFriendly,
-          }}
-          {...props}
-        >
-          {cardContent}
-        </motion.div>
-      );
-    }
+    // Create the appropriate motion wrapper based on animation
+    const createContentWrapper = () => {
+      if (animated) {
+        return (
+          <motion.div
+            className="elder-card-content"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: parseFloat(animation.duration.normal) / 1000,
+              ease: animation.easing.elderFriendly,
+            }}
+          >
+            {cardContent}
+          </motion.div>
+        );
+      }
+      return cardContent;
+    };
+
+    // Render with the semantic element and proper animation
+    const MotionWrapper = animated ? motion.div : "div";
+    const AnimationProps = animated ? {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: {
+        duration: parseFloat(animation.duration.normal) / 1000,
+        ease: animation.easing.elderFriendly,
+      }
+    } : {};
 
     return (
       <Component
@@ -176,7 +187,16 @@ const ElderCard = React.forwardRef<HTMLElement, ElderCardProps>(
         className={cardClasses}
         {...props}
       >
-        {cardContent}
+        {animated ? (
+          <motion.div
+            className="elder-card-content"
+            {...AnimationProps}
+          >
+            {cardContent}
+          </motion.div>
+        ) : (
+          cardContent
+        )}
       </Component>
     );
   }

@@ -17,7 +17,7 @@ describe("ElderButton", () => {
 
   it("applies correct size classes", () => {
     const { rerender } = render(<ElderButton size="sm">Small</ElderButton>);
-    expect(screen.getByRole("button")).toHaveClass("h-[40px]");
+    expect(screen.getByRole("button")).toHaveClass("min-h-[44px]");
 
     rerender(<ElderButton size="md">Medium</ElderButton>);
     expect(screen.getByRole("button")).toHaveClass("h-[48px]");
@@ -98,9 +98,10 @@ describe("ElderButton", () => {
   it("meets minimum touch target size (44px)", () => {
     render(<ElderButton size="sm">Small Button</ElderButton>);
     const button = screen.getByRole("button");
-    const styles = window.getComputedStyle(button);
-    const minHeight = parseInt(styles.minHeight);
-    expect(minHeight).toBeGreaterThanOrEqual(44);
+    // Check that the component has the correct class for WCAG AAA compliance
+    expect(button).toHaveClass("min-h-[44px]");
+    // Also verify minWidth is at least 44px
+    expect(button).toHaveClass("min-w-[44px]");
   });
 
   it("has focus-visible styles", () => {

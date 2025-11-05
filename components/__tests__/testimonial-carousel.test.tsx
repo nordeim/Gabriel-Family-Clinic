@@ -3,6 +3,21 @@ import userEvent from "@testing-library/user-event";
 import { TestimonialCarousel } from "../ui/testimonial-carousel";
 import type { Testimonial } from "@/types/testimonial";
 
+// Mock matchMedia for JSDOM environment
+Object.defineProperty(window, "matchMedia", {
+  writable: true,
+  value: jest.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })),
+});
+
 const mockTestimonials: Testimonial[] = [
   {
     id: "1",

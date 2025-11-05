@@ -593,7 +593,7 @@
 
 # PostgreSQL
 **/*.backup
-#**/*.sql
+**/*.sql
 
 # MongoDB
 **/dump/
@@ -801,7 +801,7 @@
 **/*.temp
 **/.DS_Store?
 **/._*
-#**/*.zip
+**/*.zip
 **/*.rar
 **/*.7z
 **/*.tar
