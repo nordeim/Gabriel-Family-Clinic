@@ -33,6 +33,10 @@ awesome job! Please meticulously explore how best to create a comprehensive `Pro
 
 ---
 
+awesome job! please meticulously plan and then create a complete database schema SQL  script as a complete backup of the Superbase database. The complete SQL script should be self sufficient to initialize my local dev database.
+
+---
+
 awesome job! Please create a complete downloadable zip archive of the entire workspace with its sub-folders and all files so that I can upload the project to my GitHub repo. Include in the zip archive your master execution plan and sub-plans.
 
 ---
