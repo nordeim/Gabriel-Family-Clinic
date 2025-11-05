@@ -4,7 +4,7 @@
 **Date:** 2025-11-05  
 **Author:** MiniMax Agent  
 **Project Status:** Production Ready ✅  
-**Live Preview:** https://c5g75qzy047a.space.minimax.io
+**Live Preview:** https://uyh4caqy433d.space.minimax.io
 
 ---
 
