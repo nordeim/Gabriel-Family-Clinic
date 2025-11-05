@@ -1,0 +1,337 @@
+@import "tailwindcss";
+
+/**
+ * Gabriel Family Clinic - Design System
+ * Elder-friendly, WCAG AAA compliant global styles
+ */
+
+/* CSS Custom Properties */
+:root {
+  /* Base Colors */
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+
+  /* Primary Colors (Sage Green) */
+  --primary-50: #f0f9f0;
+  --primary-500: #4a9d4a;
+  --primary-600: #3d8a3d;
+  --primary-700: #2f6a2f;
+
+  /* Text Colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-inverse: #ffffff;
+
+  /* Spacing Base */
+  --spacing-base: 4px;
+
+  /* Animation Durations (Elder-friendly - slower) */
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 600ms;
+
+  /* Accessibility */
+  --focus-ring-width: 3px;
+  --focus-ring-color: #4a9d4a;
+  --min-touch-target: 44px;
+}
+
+/* Tailwind v4 Theme Configuration */
+@theme inline {
+  /* Color Palette */
+  --color-primary-50: #f0f9f0;
+  --color-primary-100: #d9f2d9;
+  --color-primary-200: #b3e6b3;
+  --color-primary-300: #8cd98c;
+  --color-primary-400: #66cc66;
+  --color-primary-500: #4a9d4a;
+  --color-primary-600: #3d8a3d;
+  --color-primary-700: #2f6a2f;
+  --color-primary-800: #224b22;
+  --color-primary-900: #142d14;
+
+  --color-secondary-50: #f5f0eb;
+  --color-secondary-100: #e6d4c4;
+  --color-secondary-200: #d4b399;
+  --color-secondary-300: #c1926d;
+  --color-secondary-400: #af7142;
+  --color-secondary-500: #8B4513;
+  --color-secondary-600: #76390f;
+  --color-secondary-700: #612d0b;
+  --color-secondary-800: #4c2108;
+  --color-secondary-900: #371505;
+
+  --color-accent-50: #faf6f2;
+  --color-accent-100: #f2e8dc;
+  --color-accent-200: #e8d4ba;
+  --color-accent-300: #ddbf97;
+  --color-accent-400: #d3aa75;
+  --color-accent-500: #CD853F;
+  --color-accent-600: #b97433;
+  --color-accent-700: #a46227;
+  --color-accent-800: #8f511b;
+  --color-accent-900: #7a3f0f;
+
+  --color-success-500: #228B22;
+  --color-warning-500: #FF8C00;
+  --color-error-500: #DC143C;
+  --color-info-500: #4682B4;
+
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-inverse: #ffffff;
+
+  /* Typography - Elder-friendly 18px base */
+  --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 1.875rem;
+  --font-size-3xl: 2.25rem;
+  --font-size-4xl: 3rem;
+  --font-size-5xl: 3.75rem;
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Spacing Scale */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-11: 2.75rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+  /* Animation */
+  --animate-duration-fast: 200ms;
+  --animate-duration-normal: 400ms;
+  --animate-duration-slow: 600ms;
+  --animate-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Elder-friendly base font size */
+  font-size: 16px;
+  
+  /* Smooth scrolling with reduced motion support */
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 1.125rem; /* 18px base for elder-friendly reading */
+  line-height: 1.75; /* Generous line height */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus Styles - WCAG AAA Compliant */
+*:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 9999;
+  padding: 1rem 1.5rem;
+  background-color: var(--primary-500);
+  color: var(--text-inverse);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0.25rem;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --foreground: #000000;
+    --background: #ffffff;
+    --primary-500: #006600;
+  }
+  
+  * {
+    border-color: currentColor !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000000;
+    background: #ffffff;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Selection Styles */
+::selection {
+  background-color: var(--primary-200);
+  color: var(--text-primary);
+}
+
+::-moz-selection {
+  background-color: var(--primary-200);
+  color: var(--text-primary);
+}
+
+/* Scrollbar Styles (for browsers that support it) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-300);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-500);
+}
+
+/* Touch Target Enhancement */
+button,
+a,
+input,
+select,
+textarea {
+  min-height: var(--min-touch-target);
+  min-width: var(--min-touch-target);
+}
+
+/* Button Reset */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Link Styles */
+a {
+  color: var(--primary-600);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--primary-700);
+}
+
+a:visited {
+  color: var(--primary-700);
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 3.75rem; }
+h2 { font-size: 3rem; }
+h3 { font-size: 2.25rem; }
+h4 { font-size: 1.875rem; }
+h5 { font-size: 1.5rem; }
+h6 { font-size: 1.25rem; }
+
+/* Paragraph Spacing */
+p {
+  margin-bottom: 1.5rem;
+}
+
+/* Image Accessibility */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img:not([alt]) {
+  border: 3px solid red; /* Development warning for missing alt text */
+}
