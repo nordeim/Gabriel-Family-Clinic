@@ -3,16 +3,44 @@
     "Coordinator": {
       "1": {
         "id": "1",
-        "content": "Create comprehensive README.md for GitHub repository",
-        "details": "Transform existing README.md into awesome, complete, and useful GitHub repository documentation including: (1) Application architecture section with file hierarchy diagram and key file descriptions, (2) Mermaid diagram showing user-application interaction, (3) Mermaid diagram showing application logic flow, (4) Enhanced deployment section, (5) Updated project status (7/8 phases complete with A+ SEO score), (6) GitHub-specific features (badges, shields)",
+        "content": "Analyze current address data structure in codebase",
+        "details": "Find all files/components that contain clinic address information. Search for location data, address strings, and contact information throughout the codebase to understand the current structure.",
         "status": "completed",
         "priority": "high"
       },
       "2": {
         "id": "2",
-        "content": "Phase 8: Testing & Accessibility Verification",
-        "details": "Implement comprehensive testing and WCAG AAA compliance verification for the Gabriel Family Clinic website - 90-120 minute implementation",
-        "status": "pending",
+        "content": "Update main clinic address to Singapore location",
+        "details": "Replace current main address with: Marsiling Rise, #01-204 Block 131, Singapore 730131. Phone: 6269 6681. Update all references across the codebase.",
+        "status": "completed",
+        "priority": "high"
+      },
+      "3": {
+        "id": "3",
+        "content": "Create additional Singapore clinic addresses",
+        "details": "Generate realistic Singapore clinic addresses for other branches. Include proper Singapore postal codes, building names, and phone numbers to maintain authenticity.",
+        "status": "completed",
+        "priority": "high"
+      },
+      "4": {
+        "id": "4",
+        "content": "Integrate Google Maps for main branch",
+        "details": "Add Google Maps functionality for the main Singapore branch at Marsiling Rise. Include map component with proper styling that matches the current design aesthetic. Use Google Maps API for accurate location display.",
+        "status": "completed",
+        "priority": "high"
+      },
+      "5": {
+        "id": "5",
+        "content": "Update all components with new addresses",
+        "details": "Ensure all contact sections, footer, location pages, and any other components display the updated Singapore addresses correctly with proper formatting.",
+        "status": "completed",
+        "priority": "medium"
+      },
+      "6": {
+        "id": "6",
+        "content": "Test and deploy address updates",
+        "details": "Verify all address changes are working correctly, Google Maps integration functions properly, and maintain overall design aesthetics. Deploy updated website.",
+        "status": "completed",
         "priority": "medium"
       }
     }

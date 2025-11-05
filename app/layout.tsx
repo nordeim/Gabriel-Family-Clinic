@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display, Quicksand } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
 import { Analytics, WebVitalsReporter } from "@/components/analytics";
 import { StructuredData } from "@/components/seo/structured-data";
 
-// Elder-friendly font configuration with display swap for performance
+// Modern, accessible font configuration with display swap for performance
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-sans",
   preload: true,
   fallback: [
     "-apple-system",
     "BlinkMacSystemFont",
-    "Segoe UI",
+    "Segoe UI", 
     "Roboto",
     "Oxygen",
     "Ubuntu",
@@ -22,6 +22,24 @@ const inter = Inter({
     "Helvetica Neue",
     "sans-serif",
   ],
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
+  preload: true,
+  weight: ["400", "500", "600", "700"],
+  fallback: ["Georgia", "serif"],
+});
+
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  display: "swap", 
+  variable: "--font-rounded",
+  preload: true,
+  weight: ["300", "400", "500", "600", "700"],
+  fallback: ["Comfortaa", "sans-serif"],
 });
 
 /**
@@ -155,7 +173,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html 
+      lang="en" 
+      className={`${inter.variable} ${playfairDisplay.variable} ${quicksand.variable}`}
+    >
       <head>
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />

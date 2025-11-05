@@ -32,18 +32,20 @@ const elderButtonVariants = cva(
     variants: {
       variant: {
         primary: [
+          "btn-enhanced-primary btn-enhanced-press btn-ripple",
           "bg-primary-500 text-text-inverse",
           "hover:bg-primary-600",
           "focus-visible:ring-primary-500",
           "shadow-md hover:shadow-lg",
         ],
         secondary: [
-          "bg-secondary-500 text-text-inverse",
-          "hover:bg-secondary-600",
-          "focus-visible:ring-secondary-500",
-          "shadow-md hover:shadow-lg",
+          "btn-enhanced-secondary btn-enhanced-press btn-ripple",
+          "border-2 border-primary-500 text-primary-700",
+          "hover:bg-primary-50",
+          "focus-visible:ring-primary-500",
         ],
         outline: [
+          "btn-enhanced-secondary btn-enhanced-press btn-ripple",
           "border-2 border-primary-500 text-primary-700",
           "hover:bg-primary-50",
           "focus-visible:ring-primary-500",
@@ -58,16 +60,25 @@ const elderButtonVariants = cva(
           "hover:bg-error-600",
           "focus-visible:ring-error-500",
           "shadow-md hover:shadow-lg",
+          "btn-enhanced-press btn-ripple",
         ],
       },
       size: {
         sm: "h-[40px] min-w-[40px] px-4 text-sm", // 40px minimum for small
         md: "h-[48px] min-w-[48px] px-6 text-base", // 48px recommended
-        lg: "h-[56px] min-w-[56px] px-8 text-lg", // 56px large
-        xl: "h-[64px] min-w-[64px] px-10 text-xl", // 64px extra large
+        lg: "h-[56px] min-w-[56px] px-8 text-lg btn-enhanced-lg", // 56px large
+        xl: "h-[64px] min-w-[64px] px-10 text-xl btn-enhanced-lg", // 64px extra large
       },
       fullWidth: {
         true: "w-full",
+        false: "",
+      },
+      magnetic: {
+        true: "btn-magnetic-container",
+        false: "",
+      },
+      loading: {
+        true: "btn-enhanced-loading",
         false: "",
       },
     },
@@ -75,6 +86,8 @@ const elderButtonVariants = cva(
       variant: "primary",
       size: "md",
       fullWidth: false,
+      magnetic: true,
+      loading: false,
     },
   }
 );
@@ -86,6 +99,8 @@ export interface ElderButtonProps
   asChild?: boolean;
   /** Loading state with spinner */
   loading?: boolean;
+  /** Enable magnetic hover effects */
+  magnetic?: boolean;
   /** Icon to display before text */
   iconLeft?: React.ReactNode;
   /** Icon to display after text */
@@ -99,8 +114,9 @@ const ElderButton = React.forwardRef<HTMLButtonElement, ElderButtonProps>(
       variant,
       size,
       fullWidth,
+      magnetic,
+      loading,
       asChild = false,
-      loading = false,
       disabled,
       iconLeft,
       iconRight,
@@ -114,7 +130,14 @@ const ElderButton = React.forwardRef<HTMLButtonElement, ElderButtonProps>(
 
     return (
       <Comp
-        className={cn(elderButtonVariants({ variant, size, fullWidth, className }))}
+        className={cn(elderButtonVariants({ 
+          variant, 
+          size, 
+          fullWidth, 
+          magnetic, 
+          loading,
+          className 
+        }))}
         ref={ref}
         disabled={isDisabled}
         aria-busy={loading}

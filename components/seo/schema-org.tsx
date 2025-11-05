@@ -41,15 +41,15 @@ export const organizationSchema = {
   areaServed: [
     {
       '@type': 'City',
-      name: 'San Francisco',
+      name: 'Singapore',
     },
     {
-      '@type': 'City',
-      name: 'Oakland',
+      '@type': 'AdministrativeArea',
+      name: 'Woodlands',
     },
     {
-      '@type': 'City',
-      name: 'San Jose',
+      '@type': 'AdministrativeArea',
+      name: 'Northern Singapore',
     },
   ],
   
@@ -71,9 +71,9 @@ export const locationSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
-    '@id': 'https://gabrielfamilyclinic.com/#sf-location',
-    name: 'Gabriel Family Clinic - San Francisco',
-    description: 'Main clinic location in San Francisco providing comprehensive family medicine services.',
+    '@id': 'https://gabrielfamilyclinic.com/#singapore-location',
+    name: 'Gabriel Family Clinic - Singapore',
+    description: 'Main clinic location in Singapore providing comprehensive family medicine services.',
     
     // Parent organization
     parentOrganization: {
@@ -84,24 +84,24 @@ export const locationSchemas = [
     // Address
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '123 Medical Plaza Drive',
-      addressLocality: 'San Francisco',
-      addressRegion: 'CA',
-      postalCode: '94102',
-      addressCountry: 'US',
+      streetAddress: 'Marsiling Rise, #01-204 Block 131',
+      addressLocality: 'Singapore',
+      addressRegion: '',
+      postalCode: '730131',
+      addressCountry: 'SG',
     },
     
-    // Geo-coordinates
+    // Geo-coordinates (approximate for Marsiling, Singapore)
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 37.7749,
-      longitude: -122.4194,
+      latitude: 1.4382,
+      longitude: 103.7831,
     },
     
     // Contact
-    telephone: '+1-555-GABRIEL',
-    email: 'sf@gabrielfamilyclinic.com',
-    url: 'https://gabrielfamilyclinic.com/#sf-location',
+    telephone: '6269 6681',
+    email: 'singapore@gabrielfamilyclinic.com',
+    url: 'https://gabrielfamilyclinic.com/#singapore-location',
     
     // Opening hours
     openingHoursSpecification: [
@@ -139,9 +139,9 @@ export const locationSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
-    '@id': 'https://gabrielfamilyclinic.com/#oakland-location',
-    name: 'Gabriel Family Clinic - Oakland',
-    description: 'Oakland clinic location offering family medicine and urgent care services.',
+    '@id': 'https://gabrielfamilyclinic.com/#orchard-location',
+    name: 'Gabriel Family Clinic - Orchard',
+    description: 'Premium clinic location in Orchard offering comprehensive family medicine and specialist services.',
     
     parentOrganization: {
       '@type': 'Organization',
@@ -150,22 +150,22 @@ export const locationSchemas = [
     
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '456 Healthcare Blvd',
-      addressLocality: 'Oakland',
-      addressRegion: 'CA',
-      postalCode: '94607',
-      addressCountry: 'US',
+      streetAddress: 'Orchard Medical Centre, #08-15 Block 123',
+      addressLocality: 'Singapore',
+      addressRegion: '',
+      postalCode: '238855',
+      addressCountry: 'SG',
     },
     
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 37.8044,
-      longitude: -122.2712,
+      latitude: 1.3048,
+      longitude: 103.8318,
     },
     
-    telephone: '+1-555-OAKLAND',
-    email: 'oakland@gabrielfamilyclinic.com',
-    url: 'https://gabrielfamilyclinic.com/#oakland-location',
+    telephone: '6738 2244',
+    email: 'orchard@gabrielfamilyclinic.com',
+    url: 'https://gabrielfamilyclinic.com/#orchard-location',
     
     openingHoursSpecification: [
       {
@@ -197,9 +197,9 @@ export const locationSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
-    '@id': 'https://gabrielfamilyclinic.com/#sj-location',
-    name: 'Gabriel Family Clinic - San Jose',
-    description: 'San Jose clinic specializing in senior care and chronic disease management.',
+    '@id': 'https://gabrielfamilyclinic.com/#jurong-location',
+    name: 'Gabriel Family Clinic - Jurong',
+    description: 'Community-focused clinic in Jurong providing family medicine and geriatric care services.',
     
     parentOrganization: {
       '@type': 'Organization',
@@ -208,22 +208,22 @@ export const locationSchemas = [
     
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '789 Wellness Avenue',
-      addressLocality: 'San Jose',
-      addressRegion: 'CA',
-      postalCode: '95113',
-      addressCountry: 'US',
+      streetAddress: 'Jurong Healthcare Hub, #05-28 Block 456',
+      addressLocality: 'Singapore',
+      addressRegion: '',
+      postalCode: '608531',
+      addressCountry: 'SG',
     },
     
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 37.3382,
-      longitude: -121.8863,
+      latitude: 1.3330,
+      longitude: 103.7431,
     },
     
-    telephone: '+1-555-SANJOSE',
-    email: 'sanjose@gabrielfamilyclinic.com',
-    url: 'https://gabrielfamilyclinic.com/#sj-location',
+    telephone: '6891 5577',
+    email: 'jurong@gabrielfamilyclinic.com',
+    url: 'https://gabrielfamilyclinic.com/#jurong-location',
     
     openingHoursSpecification: [
       {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, lazy, Suspense } from "react";
+import { useEffect, useRef, lazy, Suspense, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Calendar,
@@ -17,12 +17,21 @@ import {
   Activity,
 } from "lucide-react";
 
+// Animation Components
+import { FloatingOrbs } from "@/components/animations/FloatingOrbs";
+import { ServiceCardEnhanced, ServiceGridEnhanced } from "@/components/cards/ServiceCardEnhanced";
+import ScrollReveal from "@/components/animations/ScrollReveal";
+import { useScrollSpy } from "@/hooks/useScrollSpy";
+import EnhancedNavigation from "@/components/navigation/EnhancedNavigation";
+import { MicroInteraction, InteractiveButton, AnimatedIcon } from "@/components/interactions/MicroInteractions";
+
 // Components
 import { ElderButton } from "@/components/ui/elder-button";
 import { ElderCard } from "@/components/ui/elder-card";
 import { SkipLinks } from "@/components/accessibility/skip-link";
 import { TextSizeControl } from "@/components/accessibility/text-size-control";
 import { ScrollDepthTracker } from "@/components/analytics";
+import ClinicMap from "@/components/maps/ClinicMap";
 
 // Data
 import { sampleTestimonials } from "@/data/testimonials";
@@ -59,6 +68,29 @@ const staggerContainer = {
   },
 };
 
+// Custom Typewriter Hook
+const useTypewriter = (text: string, speed: number = 50) => {
+  const [displayText, setDisplayText] = useState('');
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index < text.length) {
+        setDisplayText(text.slice(0, index + 1));
+        index++;
+      } else {
+        setIsComplete(true);
+        clearInterval(timer);
+      }
+    }, speed);
+
+    return () => clearInterval(timer);
+  }, [text, speed]);
+
+  return { displayText, isComplete };
+};
+
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const servicesRef = useRef<HTMLElement>(null);
@@ -67,10 +99,77 @@ export default function Home() {
   const locationsRef = useRef<HTMLElement>(null);
   const contactRef = useRef<HTMLElement>(null);
 
+  // Hero typewriter effect
+  const heroTitle = "Compassionate Care for Every Generation";
+
+  // Scroll spy for active section tracking
+  const { activeSection, scrollProgress } = useScrollSpy({
+    sectionIds: ["services", "testimonials", "why-us", "locations", "contact"],
+    threshold: 0.6,
+    rootMargin: "0px",
+  });
+
   return (
     <div className="min-h-screen bg-neutral-50">
       {/* Scroll Depth Tracking */}
       <ScrollDepthTracker />
+      
+      {/* Enhanced Navigation */}
+      <EnhancedNavigation
+        items={[
+          {
+            href: "#services",
+            label: "Services",
+            icon: <Heart className="w-4 h-4" />,
+            isActive: activeSection === "services"
+          },
+          {
+            href: "#testimonials",
+            label: "Reviews",
+            icon: <Star className="w-4 h-4" />,
+            isActive: activeSection === "testimonials"
+          },
+          {
+            href: "#why-us",
+            label: "Why Us",
+            icon: <Shield className="w-4 h-4" />,
+            isActive: activeSection === "why-us"
+          },
+          {
+            href: "#locations",
+            label: "Locations",
+            icon: <MapPin className="w-4 h-4" />,
+            isActive: activeSection === "locations"
+          },
+          {
+            href: "#contact",
+            label: "Contact",
+            icon: <Phone className="w-4 h-4" />,
+            isActive: activeSection === "contact"
+          }
+        ]}
+        currentSection={activeSection || undefined}
+        onItemClick={(href) => {
+          // Smooth scroll to section
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ 
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }}
+      />
+      
+      {/* Scroll Progress Indicator */}
+      <div 
+        className="scroll-progress"
+        style={{ 
+          transform: `scaleX(${scrollProgress})`,
+          willChange: 'transform'
+        }}
+        aria-hidden="true"
+      />
 
       {/* Skip Links for Accessibility */}
       <SkipLinks
@@ -100,9 +199,9 @@ export default function Home() {
                 size="md"
                 iconLeft={<Phone className="w-5 h-5" />}
                 aria-label="Call clinic"
-                onClick={() => trackPhoneClick("(415) 555-0123")}
+                onClick={() => trackPhoneClick("6269 6681")}
               >
-                <span className="hidden sm:inline">(415) 555-0123</span>
+                <span className="hidden sm:inline">6269 6681</span>
                 <span className="sm:hidden">Call</span>
               </ElderButton>
             </div>
@@ -111,29 +210,33 @@ export default function Home() {
       </header>
 
       <main id="main-content">
-        {/* Hero Section */}
+        {/* Enhanced Hero Section with Aurora Gradients */}
         <section
           ref={heroRef}
-          className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-20 sm:py-24 lg:py-32"
+          className="hero-section-enhanced hero-magnetic pt-24 sm:pt-28 lg:pt-36 pb-20 sm:pb-24 lg:pb-32"
           aria-labelledby="hero-heading"
         >
+          {/* Floating Orbs System */}
+          <FloatingOrbs />
+          
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="hero-content-enhanced max-w-4xl mx-auto text-center">
               <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={fadeInUp}
                 transition={{ duration: 0.6 }}
               >
-                <h2
+                <h1
                   id="hero-heading"
-                  className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight"
+                  className="hero-title-enhanced mb-6"
+                  aria-live="polite"
                 >
-                  Excellence in Senior Healthcare
-                </h2>
-                <p className="text-xl sm:text-2xl text-neutral-700 mb-8 leading-relaxed">
-                  Compassionate, personalized medical care designed specifically for older adults.
-                  Your health, your comfort, our priority.
+                  {heroTitle}
+                </h1>
+                <p className="hero-subtitle-enhanced mb-8">
+                  Your trusted partner in family healthcare — serving the Bay Area for 35 years.
+                  Compassionate, personalized care designed for every generation.
                 </p>
               </motion.div>
 
@@ -142,63 +245,52 @@ export default function Home() {
                 animate="visible"
                 variants={fadeInUp}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
               >
-                <ElderButton
-                  variant="primary"
-                  size="lg"
-                  iconLeft={<Calendar className="w-6 h-6" />}
-                  className="w-full sm:w-auto"
+                <button
+                  className="btn-enhanced-primary btn-enhanced-press"
                   onClick={() => trackAppointmentClick("hero")}
                 >
+                  <Calendar className="w-5 h-5 mr-2" />
                   Book Appointment
-                </ElderButton>
-                <ElderButton
-                  variant="outline"
-                  size="lg"
-                  iconLeft={<Phone className="w-6 h-6" />}
-                  className="w-full sm:w-auto"
-                  onClick={() => trackPhoneClick("(415) 555-0123")}
+                </button>
+                <button
+                  className="btn-enhanced-secondary btn-enhanced-press"
+                  onClick={() => trackPhoneClick("6269 6681")}
                 >
-                  Call Us Now
-                </ElderButton>
+                  <Phone className="w-5 h-5 mr-2" />
+                  Contact Us
+                </button>
               </motion.div>
 
+              {/* Key Features - Professional Healthcare Trust Indicators */}
               <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={fadeInUp}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-12 flex flex-wrap justify-center gap-8 text-neutral-700"
+                className="flex flex-wrap justify-center gap-6 text-sm font-medium text-primary-700"
               >
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-6 h-6 text-success-600" aria-hidden="true" />
-                  <span className="text-lg">Medicare Accepted</span>
+                  <CheckCircle2 className="w-5 h-5 text-primary-600" />
+                  <span>Medicare Accepted</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-6 h-6 text-success-600" aria-hidden="true" />
-                  <span className="text-lg">Walk-ins Welcome</span>
+                  <CheckCircle2 className="w-5 h-5 text-primary-600" />
+                  <span>Walk-ins Welcome</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-6 h-6 text-success-600" aria-hidden="true" />
-                  <span className="text-lg">Same-Day Appointments</span>
+                  <CheckCircle2 className="w-5 h-5 text-primary-600" />
+                  <span>Same-Day Appointments</span>
                 </div>
               </motion.div>
+
+
             </div>
           </div>
-
-          {/* Decorative gradient orb */}
-          <div
-            className="absolute -top-24 -right-24 w-96 h-96 bg-primary-200 rounded-full blur-3xl opacity-30"
-            aria-hidden="true"
-          />
-          <div
-            className="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary-200 rounded-full blur-3xl opacity-30"
-            aria-hidden="true"
-          />
         </section>
 
-        {/* Quick Actions Grid */}
+        {/* Enhanced Services Grid */}
         <section
           id="services"
           ref={servicesRef}
@@ -227,82 +319,73 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {[
-                {
-                  icon: Calendar,
-                  title: "Schedule Appointment",
-                  description: "Book your visit online or by phone. Same-day appointments available.",
-                  variant: "elevated" as const,
-                },
-                {
-                  icon: Phone,
-                  title: "24/7 Urgent Care",
-                  description: "Round-the-clock medical support for urgent health concerns.",
-                  variant: "elevated" as const,
-                },
-                {
-                  icon: Stethoscope,
-                  title: "Primary Care",
-                  description: "Comprehensive health management and preventive care services.",
-                  variant: "elevated" as const,
-                },
-                {
-                  icon: Heart,
-                  title: "Cardiology",
-                  description: "Expert heart health monitoring and cardiovascular disease management.",
-                  variant: "elevated" as const,
-                },
-                {
-                  icon: Activity,
-                  title: "Physical Therapy",
-                  description: "Rehabilitation and mobility improvement programs for seniors.",
-                  variant: "elevated" as const,
-                },
-                {
-                  icon: Users,
-                  title: "Geriatric Care",
-                  description: "Specialized care addressing the unique needs of older adults.",
-                  variant: "elevated" as const,
-                },
-              ].map((service, index) => (
-                <motion.div key={index} variants={fadeInUp}>
-                  <ElderCard
+              <ServiceGridEnhanced>
+                {[
+                  {
+                    icon: <Calendar className="w-8 h-8 text-primary-600" />,
+                    title: "Schedule Appointment",
+                    description: "Book your visit online or by phone. Same-day appointments available.",
+                    variant: "primary" as const,
+                  },
+                  {
+                    icon: <Phone className="w-8 h-8 text-primary-600" />,
+                    title: "24/7 Urgent Care",
+                    description: "Round-the-clock medical support for urgent health concerns.",
+                    variant: "accent" as const,
+                  },
+                  {
+                    icon: <Stethoscope className="w-8 h-8 text-primary-600" />,
+                    title: "Primary Care",
+                    description: "Comprehensive health management and preventive care services.",
+                    variant: "glass" as const,
+                  },
+                  {
+                    icon: <Heart className="w-8 h-8 text-primary-600" />,
+                    title: "Cardiology",
+                    description: "Expert heart health monitoring and cardiovascular disease management.",
+                    variant: "primary" as const,
+                  },
+                  {
+                    icon: <Activity className="w-8 h-8 text-primary-600" />,
+                    title: "Physical Therapy",
+                    description: "Rehabilitation and mobility improvement programs for seniors.",
+                    variant: "accent" as const,
+                  },
+                  {
+                    icon: <Users className="w-8 h-8 text-primary-600" />,
+                    title: "Geriatric Care",
+                    description: "Specialized care addressing the unique needs of older adults.",
+                    variant: "glass" as const,
+                  },
+                ].map((service, index) => (
+                  <ServiceCardEnhanced
+                    key={index}
+                    icon={service.icon}
+                    title={service.title}
+                    description={service.description}
                     variant={service.variant}
-                    padding="lg"
-                    className="h-full hover:shadow-xl transition-shadow duration-400"
-                  >
-                    <div className="flex flex-col items-center text-center gap-4">
-                      <div className="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center">
-                        <service.icon className="w-8 h-8 text-primary-600" aria-hidden="true" />
-                      </div>
-                      <h3 className="text-xl font-semibold text-neutral-900">{service.title}</h3>
-                      <p className="text-neutral-600 leading-relaxed">{service.description}</p>
-                      <ElderButton
-                        variant="ghost"
-                        size="sm"
-                        className="mt-auto"
-                        onClick={() => trackServiceClick(service.title)}
-                      >
-                        Learn More
-                      </ElderButton>
-                    </div>
-                  </ElderCard>
-                </motion.div>
-              ))}
+                    delay={index * 100}
+                    magnetic={true}
+                    onClick={() => trackServiceClick(service.title)}
+                    aria-label={`Learn more about ${service.title}`}
+                  />
+                ))}
+              </ServiceGridEnhanced>
             </motion.div>
           </div>
         </section>
 
         {/* Testimonials Section */}
-        <section
-          id="testimonials"
-          ref={testimonialsRef}
-          className="py-16 sm:py-20 bg-neutral-50"
-          aria-labelledby="testimonials-heading"
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal delay={0.1} duration={0.8} direction="up">
+          <section
+            id="testimonials"
+            ref={testimonialsRef}
+            className="py-16 sm:py-20 bg-neutral-50"
+            aria-labelledby="testimonials-heading"
+          >
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -341,15 +424,17 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
+        </ScrollReveal>
 
         {/* Why Choose Us Section */}
-        <section
-          id="why-us"
-          ref={whyUsRef}
-          className="py-16 sm:py-20 bg-white"
-          aria-labelledby="why-us-heading"
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <ScrollReveal delay={0.2} duration={0.8} direction="up">
+          <section
+            id="why-us"
+            ref={whyUsRef}
+            className="py-16 sm:py-20 bg-white"
+            aria-labelledby="why-us-heading"
+          >
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -415,14 +500,16 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
+        </ScrollReveal>
 
         {/* Clinic Locations Section */}
-        <section
-          id="locations"
-          ref={locationsRef}
-          className="py-16 sm:py-20 bg-neutral-50"
-          aria-labelledby="locations-heading"
-        >
+        <ScrollReveal delay={0.3} duration={0.8} direction="up">
+          <section
+            id="locations"
+            ref={locationsRef}
+            className="py-16 sm:py-20 bg-neutral-50"
+            aria-labelledby="locations-heading"
+          >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial="hidden"
@@ -449,24 +536,24 @@ export default function Home() {
             >
               {[
                 {
-                  name: "San Francisco Main",
-                  address: "123 Market Street, Suite 400",
-                  city: "San Francisco, CA 94102",
-                  phone: "(415) 555-0123",
+                  name: "Singapore Main",
+                  address: "Marsiling Rise, #01-204 Block 131",
+                  city: "Singapore 730131",
+                  phone: "6269 6681",
                   hours: "Mon-Fri: 8am-6pm, Sat: 9am-3pm",
                 },
                 {
-                  name: "Oakland Center",
-                  address: "456 Broadway Avenue, Floor 2",
-                  city: "Oakland, CA 94612",
-                  phone: "(510) 555-0124",
+                  name: "Orchard Medical Centre",
+                  address: "Orchard Medical Centre, #08-15 Block 123",
+                  city: "Singapore 238855",
+                  phone: "6738 2244",
                   hours: "Mon-Fri: 8am-6pm, Sat: 9am-3pm",
                 },
                 {
-                  name: "Berkeley Clinic",
-                  address: "789 University Avenue",
-                  city: "Berkeley, CA 94704",
-                  phone: "(510) 555-0125",
+                  name: "Jurong Healthcare Hub",
+                  address: "Jurong Healthcare Hub, #05-28 Block 456",
+                  city: "Singapore 608531",
+                  phone: "6891 5577",
                   hours: "Mon-Fri: 8am-5pm",
                 },
               ].map((location, index) => (
@@ -498,15 +585,28 @@ export default function Home() {
                         <p className="text-neutral-600">{location.hours}</p>
                       </div>
 
-                      <ElderButton
-                        variant="outline"
-                        size="md"
-                        iconLeft={<MapPin className="w-5 h-5" />}
-                        fullWidth
-                        onClick={() => trackLocationClick(location.name)}
-                      >
-                        Get Directions
-                      </ElderButton>
+                      {/* Google Maps Integration */}
+                      <div className="mt-4 space-y-3">
+                        <ClinicMap
+                          address={`${location.address}, ${location.city}`}
+                          clinicName={location.name}
+                          height="200px"
+                          showOverlay={false}
+                          className="mb-4"
+                        />
+                        
+                        <div className="flex gap-2">
+                          <ElderButton
+                            variant="outline"
+                            size="sm"
+                            iconLeft={<MapPin className="w-4 h-4" />}
+                            className="flex-1"
+                            onClick={() => trackLocationClick(location.name)}
+                          >
+                            Get Directions
+                          </ElderButton>
+                        </div>
+                      </div>
                     </div>
                   </ElderCard>
                 </motion.div>
@@ -515,13 +615,16 @@ export default function Home() {
           </div>
         </section>
 
+        </ScrollReveal>
+
         {/* Final CTA Section */}
-        <section
-          id="contact"
-          ref={contactRef}
-          className="py-20 sm:py-24 bg-gradient-to-br from-primary-600 to-primary-700 text-white"
-          aria-labelledby="cta-heading"
-        >
+        <ScrollReveal delay={0.4} duration={0.8} direction="up">
+          <section
+            id="contact"
+            ref={contactRef}
+            className="py-20 sm:py-24 bg-gradient-to-br from-primary-600 to-primary-700 text-white"
+            aria-labelledby="cta-heading"
+          >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial="hidden"
@@ -554,9 +657,9 @@ export default function Home() {
                   size="xl"
                   iconLeft={<Phone className="w-6 h-6" />}
                   className="w-full sm:w-auto border-white text-white hover:bg-white/10"
-                  onClick={() => trackPhoneClick("(415) 555-0123")}
+                  onClick={() => trackPhoneClick("6269 6681")}
                 >
-                  Call (415) 555-0123
+                  Call 6269 6681
                 </ElderButton>
               </div>
 
@@ -573,16 +676,17 @@ export default function Home() {
                   className="bg-error-600 hover:bg-error-700"
                   onClick={() => trackEmergencyClick()}
                 >
-                  Emergency: (415) 555-9911
+                  Emergency: 6269 6681
                 </ElderButton>
               </div>
             </motion.div>
           </div>
         </section>
+        </ScrollReveal>
       </main>
 
       {/* Footer */}
-      <footer className="bg-neutral-900 text-neutral-300 py-12" role="contentinfo">
+      <footer className="bg-primary-800 text-neutral-100 py-12" role="contentinfo">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
@@ -590,7 +694,7 @@ export default function Home() {
                 <Heart className="w-8 h-8 text-primary-500" aria-hidden="true" />
                 <h3 className="text-xl font-bold text-white">Gabriel Family Clinic</h3>
               </div>
-              <p className="text-neutral-400 mb-4">
+              <p className="text-neutral-200 mb-4">
                 Providing compassionate, quality healthcare to seniors across the Bay Area since 1989.
               </p>
             </div>
@@ -599,22 +703,22 @@ export default function Home() {
               <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#services" className="hover:text-primary-400 transition-colors">
+                  <a href="#services" className="hover:text-primary-200 transition-colors">
                     Our Services
                   </a>
                 </li>
                 <li>
-                  <a href="#testimonials" className="hover:text-primary-400 transition-colors">
+                  <a href="#testimonials" className="hover:text-primary-200 transition-colors">
                     Patient Reviews
                   </a>
                 </li>
                 <li>
-                  <a href="#locations" className="hover:text-primary-400 transition-colors">
+                  <a href="#locations" className="hover:text-primary-200 transition-colors">
                     Locations
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="hover:text-primary-400 transition-colors">
+                  <a href="#contact" className="hover:text-primary-200 transition-colors">
                     Contact Us
                   </a>
                 </li>
@@ -626,13 +730,13 @@ export default function Home() {
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <Phone className="w-5 h-5 text-primary-500" aria-hidden="true" />
-                  <a href="tel:+14155550123" className="hover:text-primary-400 transition-colors">
-                    (415) 555-0123
+                  <a href="tel:+6562696681" className="hover:text-primary-200 transition-colors">
+                    6269 6681
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-primary-500" aria-hidden="true" />
-                  <span>123 Market Street, SF, CA 94102</span>
+                  <span>Marsiling Rise, #01-204 Block 131, Singapore 730131</span>
                 </li>
               </ul>
             </div>

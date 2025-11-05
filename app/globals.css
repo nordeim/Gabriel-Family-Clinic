@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
 /**
@@ -5,25 +6,85 @@
  * Elder-friendly, WCAG AAA compliant global styles
  */
 
-/* CSS Custom Properties */
+/* CSS Custom Properties - Phase A Enhanced Design System */
 :root {
   /* Base Colors */
   --background: #ffffff;
   --foreground: #1a1a1a;
 
-  /* Primary Colors (Sage Green) */
-  --primary-50: #f0f9f0;
-  --primary-500: #4a9d4a;
-  --primary-600: #3d8a3d;
-  --primary-700: #2f6a2f;
+  /* Primary Colors - Calming Blue (Trust + Professionalism) */
+  --primary-50: #DBEAFE;
+  --primary-100: #BFDBFE;
+  --primary-200: #93C5FD;
+  --primary-300: #60A5FA;
+  --primary-400: #3B82F6;
+  --primary-500: #2563EB;
+  --primary-600: #1D4ED8;
+  --primary-700: #1E40AF;
+  --primary-800: #1E3A8A;
+  --primary-900: #1E3A8A;
+
+  /* Accent Colors - Soft Teal (Gentle Vitality) */
+  --accent-50: #D1FAE5;
+  --accent-100: #A7F3D0;
+  --accent-200: #6EE7B7;
+  --accent-300: #34D399;
+  --accent-400: #10B981;
+  --accent-500: #10B981;
+  --accent-600: #059669;
+  --accent-700: #047857;
+  --accent-800: #065F46;
+  --accent-900: #064E3B;
+
+  /* Neutral Colors - Warm Undertones */
+  --neutral-50: #FAFAF9;
+  --neutral-100: #F5F5F4;
+  --neutral-200: #E7E5E4;
+  --neutral-400: #A8A29E;
+  --neutral-700: #44403C;
+  --neutral-900: #1C1917;
 
   /* Text Colors */
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a4a4a;
+  --text-primary: #1C1917;
+  --text-secondary: #44403C;
   --text-inverse: #ffffff;
 
-  /* Spacing Base */
-  --spacing-base: 4px;
+  /* Modern Font System - Poppins + Inter */
+  --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-rounded: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Professional Animation Curves */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --spring-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Enhanced Shadow System */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-colored: 0 8px 30px rgba(8, 145, 178, 0.12);
+
+  /* Modern Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-base: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Enhanced Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
 
   /* Animation Durations (Elder-friendly - slower) */
   --duration-fast: 200ms;
@@ -32,24 +93,49 @@
 
   /* Accessibility */
   --focus-ring-width: 3px;
-  --focus-ring-color: #4a9d4a;
+  --focus-ring-color: #0891B2;
   --min-touch-target: 44px;
 }
 
-/* Tailwind v4 Theme Configuration */
+/* Tailwind v4 Theme Configuration - Phase A Enhanced */
 @theme inline {
-  /* Color Palette */
-  --color-primary-50: #f0f9f0;
-  --color-primary-100: #d9f2d9;
-  --color-primary-200: #b3e6b3;
-  --color-primary-300: #8cd98c;
-  --color-primary-400: #66cc66;
-  --color-primary-500: #4a9d4a;
-  --color-primary-600: #3d8a3d;
-  --color-primary-700: #2f6a2f;
-  --color-primary-800: #224b22;
-  --color-primary-900: #142d14;
+  /* Primary Colors - Calming Blue (Trust + Professionalism) */
+  --color-primary-50: #DBEAFE;
+  --color-primary-100: #BFDBFE;
+  --color-primary-200: #93C5FD;
+  --color-primary-300: #60A5FA;
+  --color-primary-400: #3B82F6;
+  --color-primary-500: #2563EB;
+  --color-primary-600: #1D4ED8;
+  --color-primary-700: #1E40AF;
+  --color-primary-800: #1E3A8A;
+  --color-primary-900: #1E3A8A;
 
+  /* Accent Colors - Soft Teal (Gentle Vitality) */
+  --color-accent-50: #D1FAE5;
+  --color-accent-100: #A7F3D0;
+  --color-accent-200: #6EE7B7;
+  --color-accent-300: #34D399;
+  --color-accent-400: #10B981;
+  --color-accent-500: #10B981;
+  --color-accent-600: #059669;
+  --color-accent-700: #047857;
+  --color-accent-800: #065F46;
+  --color-accent-900: #064E3B;
+
+  /* Neutral Colors - Warm Undertones */
+  --color-neutral-50: #FAFAF9;
+  --color-neutral-100: #F5F5F4;
+  --color-neutral-200: #E7E5E4;
+  --color-neutral-300: #D6D3D1;
+  --color-neutral-400: #A8A29E;
+  --color-neutral-500: #78716C;
+  --color-neutral-600: #57534E;
+  --color-neutral-700: #44403C;
+  --color-neutral-800: #292524;
+  --color-neutral-900: #1C1917;
+
+  /* Secondary Colors - Enhanced warm palette */
   --color-secondary-50: #f5f0eb;
   --color-secondary-100: #e6d4c4;
   --color-secondary-200: #d4b399;
@@ -61,17 +147,6 @@
   --color-secondary-800: #4c2108;
   --color-secondary-900: #371505;
 
-  --color-accent-50: #faf6f2;
-  --color-accent-100: #f2e8dc;
-  --color-accent-200: #e8d4ba;
-  --color-accent-300: #ddbf97;
-  --color-accent-400: #d3aa75;
-  --color-accent-500: #CD853F;
-  --color-accent-600: #b97433;
-  --color-accent-700: #a46227;
-  --color-accent-800: #8f511b;
-  --color-accent-900: #7a3f0f;
-
   --color-success-500: #228B22;
   --color-warning-500: #FF8C00;
   --color-error-500: #DC143C;
@@ -81,18 +156,20 @@
   --color-text-secondary: #4a4a4a;
   --color-text-inverse: #ffffff;
 
-  /* Typography - Elder-friendly 18px base */
-  --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Typography - Poppins + Inter Font Pairing */
+  --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-rounded: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1.125rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 1.875rem;
-  --font-size-3xl: 2.25rem;
-  --font-size-4xl: 3rem;
-  --font-size-5xl: 3.75rem;
+  /* Font Sizes - Senior-friendly with enhanced scale */
+  --font-size-xs: 0.875rem;    /* 14px - Small labels */
+  --font-size-sm: 0.938rem;    /* 15px - Secondary text */
+  --font-size-base: 1rem;      /* 16px - Body text (enhanced base) */
+  --font-size-lg: 1.125rem;    /* 18px - Large body */
+  --font-size-xl: 1.25rem;     /* 20px - Subheadings */
+  --font-size-2xl: 1.5rem;     /* 24px - Headings */
+  --font-size-3xl: 1.875rem;   /* 30px - Large headings */
+  --font-size-4xl: 2.25rem;    /* 36px - Hero headings */
 
   /* Line Heights */
   --line-height-tight: 1.25;
@@ -123,17 +200,34 @@
   --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  /* Enhanced Shadow System */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-2xl: 0 50px 100px -20px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  
+  /* Colored shadows for brand elements */
+  --shadow-colored: 0 8px 30px rgba(8, 145, 178, 0.12);
+  --shadow-colored-lg: 0 20px 40px rgba(8, 145, 178, 0.15);
+  
+  /* Floating shadows for cards */
+  --shadow-floating: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-floating-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
 
-  /* Animation */
+  /* Enhanced Animation System */
   --animate-duration-fast: 200ms;
   --animate-duration-normal: 400ms;
   --animate-duration-slow: 600ms;
   --animate-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Professional transition curves */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --spring-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 /* Global Styles */
@@ -313,12 +407,22 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
 }
 
-h1 { font-size: 3.75rem; }
-h2 { font-size: 3rem; }
-h3 { font-size: 2.25rem; }
-h4 { font-size: 1.875rem; }
-h5 { font-size: 1.5rem; }
-h6 { font-size: 1.25rem; }
+/* Balanced Typography Hierarchy */
+h1 { 
+  font-size: clamp(2.5rem, 5vw, 3.25rem); /* 40px -> 52px */
+  font-weight: 600;
+}
+h2 { 
+  font-size: clamp(2rem, 4vw, 2.5rem); /* 32px -> 40px */
+  font-weight: 600;
+}
+h3 { 
+  font-size: clamp(1.75rem, 3vw, 2.25rem); /* 28px -> 36px */
+  font-weight: 600;
+}
+h4 { font-size: 1.875rem; font-weight: 600; }
+h5 { font-size: 1.5rem; font-weight: 600; }
+h6 { font-size: 1.25rem; font-weight: 600; }
 
 /* Paragraph Spacing */
 p {
@@ -334,4 +438,1066 @@ img {
 
 img:not([alt]) {
   border: 3px solid red; /* Development warning for missing alt text */
+}
+
+/* ========================================
+   PHASE B: ENHANCED HERO SECTION STYLES
+   Aurora Gradients & Floating Orbs System
+   ======================================== */
+
+/* Hero Section - Clean Professional Background */
+.hero-section-enhanced {
+  background: linear-gradient(135deg, 
+    var(--primary-50) 0%,
+    #ffffff 50%,
+    var(--neutral-50) 100%
+  );
+  position: relative;
+  overflow: hidden;
+  min-height: 80vh;
+}
+
+/* Clean Gradient Overlays - Simplified */
+.hero-section-enhanced::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 60%;
+  height: 150%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(37, 99, 235, 0.03) 0%,
+    transparent 70%
+  );
+  animation: rotate-slow 30s linear infinite;
+  z-index: 1;
+}
+
+.hero-section-enhanced::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(16, 185, 129, 0.02) 0%,
+    transparent 60%
+  );
+  animation: rotate-slow 25s linear infinite reverse;
+  z-index: 1;
+}
+
+/* Hero Content Positioning - Clean and Professional */
+.hero-content-enhanced {
+  position: relative;
+  z-index: 10;
+  transform: translateY(0);
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+/* Floating Orbs - Hidden for Professional Appearance */
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: none;
+  pointer-events: none;
+  display: none;
+}
+
+/* Subtle Floating Orbs - Professional Healthcare */
+.floating-orb-primary {
+  width: 120px;
+  height: 120px;
+  top: 20%;
+  right: 15%;
+  background: linear-gradient(45deg, var(--primary-200), var(--primary-100));
+  opacity: 0.3;
+  animation-delay: 0s;
+}
+
+.floating-orb-secondary {
+  width: 80px;
+  height: 80px;
+  bottom: 25%;
+  left: 10%;
+  background: linear-gradient(45deg, var(--accent-200), var(--accent-100));
+  opacity: 0.2;
+  animation-delay: 2s;
+}
+
+.floating-orb-tertiary {
+  width: 60px;
+  height: 60px;
+  top: 60%;
+  right: 30%;
+  background: linear-gradient(45deg, var(--primary-100), var(--neutral-200));
+  opacity: 0.15;
+  animation-delay: 4s;
+}
+
+/* Typewriter Effect for Enhanced Typography */
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid var(--primary-500);
+  white-space: nowrap;
+  animation: typewriter 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Magnetic Parallax Effect */
+.hero-magnetic {
+  transition: transform 0.2s var(--ease-out-expo);
+}
+
+.hero-magnetic:hover {
+  transform: translate(var(--mouse-x, 0), var(--mouse-y, 0));
+}
+
+/* Hero Animations - Simplified for Professional Appearance */
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disable floating animations for clean look */
+.hero-section-enhanced::before,
+.hero-section-enhanced::after {
+  animation: none !important;
+}
+
+/* Disable floating animations for clean look */
+.hero-section-enhanced::before,
+.hero-section-enhanced::after {
+  animation: none !important;
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--primary-500);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section-enhanced::before,
+  .hero-section-enhanced::after {
+    animation: none;
+  }
+  
+  .floating-orb {
+    animation: none;
+  }
+  
+  .hero-content-enhanced {
+    transform: none;
+  }
+  
+  .hero-magnetic {
+    transform: none;
+  }
+  
+  .typewriter {
+    animation: none;
+    border-right: none;
+    white-space: normal;
+  }
+  
+  .btn-magnetic-container {
+    transform: none;
+  }
+  
+  .btn-ripple::after {
+    display: none;
+  }
+  
+  .btn-enhanced-press:active {
+    transform: none;
+  }
+}
+
+/* Enhanced Hero Typography - Professional Healthcare */
+.hero-title-enhanced {
+  font-family: var(--font-display);
+  color: var(--primary-800) !important;
+  font-weight: 600 !important;
+  font-size: clamp(2.5rem, 5vw, 3.25rem);
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-subtitle-enhanced {
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive Hero Enhancements */
+@media (max-width: 640px) {
+  .floating-orb-primary {
+    width: 80px;
+    height: 80px;
+    top: 15%;
+    right: 10%;
+  }
+  
+  .floating-orb-secondary {
+    width: 60px;
+    height: 60px;
+    bottom: 20%;
+    left: 5%;
+  }
+  
+  .floating-orb-tertiary {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    right: 20%;
+  }
+}
+
+/* ========================================
+   PHASE B: ENHANCED BUTTON SYSTEM
+   Magnetic Effects & Ripple Animations
+   ======================================== */
+
+/* Button Container - Professional Healthcare Style */
+.btn-magnetic-container {
+  position: relative;
+  transition: transform 0.2s var(--ease-out-expo);
+}
+
+.btn-magnetic-container:hover {
+  transform: translateY(-2px);
+}
+
+/* Enhanced Primary Button - Professional Healthcare */
+.btn-enhanced-primary {
+  background: var(--primary-600);
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s var(--ease-out-expo);
+  transform: translateY(0);
+}
+
+.btn-enhanced-primary:hover {
+  transform: translateY(-2px);
+  background: var(--primary-700);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+}
+
+.btn-enhanced-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  );
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.6s var(--ease-out-expo);
+  pointer-events: none;
+}
+
+.btn-enhanced-primary:hover::before {
+  transform: translate(-50%, -50%) scale(2);
+}
+
+/* Ripple Effect System */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  pointer-events: none;
+}
+
+.btn-ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Enhanced Button Variants - Professional Healthcare */
+.btn-enhanced-secondary {
+  background: transparent;
+  border: 2px solid var(--primary-500);
+  color: var(--primary-600);
+  font-family: var(--font-sans);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn-enhanced-secondary:hover {
+  background: var(--primary-50);
+  border-color: var(--primary-600);
+  color: var(--primary-700);
+  transform: translateY(-2px);
+}
+
+.btn-enhanced-accent {
+  background: var(--accent-600);
+  font-family: var(--font-sans);
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
+}
+
+.btn-enhanced-accent:hover {
+  background: var(--accent-700);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Large Button Enhancement */
+.btn-enhanced-lg {
+  padding: 1.25rem 3rem;
+  font-size: 1.25rem;
+  border-radius: 8px;
+}
+
+/* Icon Button Enhancement */
+.btn-enhanced-icon {
+  padding: 1rem;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-600);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+}
+
+.btn-enhanced-icon:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Enhanced Focus States */
+.btn-enhanced-primary:focus-visible,
+.btn-enhanced-secondary:focus-visible,
+.btn-enhanced-accent:focus-visible {
+  outline: 3px solid var(--primary-300);
+  outline-offset: 2px;
+}
+
+/* Button Loading State Enhancement */
+.btn-enhanced-loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn-enhanced-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
+}
+
+/* Button Press Effect */
+.btn-enhanced-press {
+  transition: transform 0.1s var(--ease-out-back);
+}
+
+.btn-enhanced-press:active {
+  transform: scale(0.95);
+}
+
+/* Magnetic Bounds - Prevent elements from leaving container */
+.btn-magnetic-bounds {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Animation Keyframes */
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* ========================================
+   PHASE B: ENHANCED SERVICE CARDS SYSTEM
+   3D Transforms & Progressive Reveals
+   ======================================== */
+
+/* Modern Service Cards - Clean Professional Healthcare */
+.service-card-enhanced {
+  background: var(--background, #ffffff);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border, #e5e7eb);
+  transition: all 0.3s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card-enhanced:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Hover Enhancement - Subtle */
+.service-card-enhanced::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-500), var(--accent-500));
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out-expo);
+}
+
+.service-card-enhanced:hover::after {
+  opacity: 1;
+}
+
+/* Progressive Reveal Animation */
+.card-content-enhanced {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.6s var(--ease-out-expo);
+}
+
+.service-card-enhanced:hover .card-content-enhanced {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Staggered Animation Grid */
+.service-grid-enhanced {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card-enhanced:nth-child(1) { transition-delay: 0ms; }
+.service-card-enhanced:nth-child(2) { transition-delay: 100ms; }
+.service-card-enhanced:nth-child(3) { transition-delay: 200ms; }
+.service-card-enhanced:nth-child(4) { transition-delay: 300ms; }
+.service-card-enhanced:nth-child(5) { transition-delay: 400ms; }
+.service-card-enhanced:nth-child(6) { transition-delay: 500ms; }
+
+/* Professional Card Interaction */
+.card-magnetic-enhanced {
+  cursor: pointer;
+}
+
+.card-magnetic-enhanced:hover {
+  transform: translateY(-4px);
+}
+
+/* Loading Skeleton System */
+.card-skeleton {
+  background: linear-gradient(90deg, 
+    var(--neutral-200) 25%, 
+    var(--neutral-100) 50%, 
+    var(--neutral-200) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Clean Card Variants - Professional Healthcare */
+.card-variant-primary {
+  background: var(--background);
+  border: 1px solid var(--border);
+}
+
+.card-variant-accent {
+  background: var(--background);
+  border: 1px solid var(--accent-200);
+}
+
+.card-variant-glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Testimonial Cards - Clean Professional Design */
+.testimonial-card {
+  background: var(--background, #ffffff);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border, #e5e7eb);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-500), var(--accent-500));
+}
+
+.testimonial-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Professional Card Icon System */
+.card-icon-enhanced {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: var(--primary-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.service-card-enhanced:hover .card-icon-enhanced {
+  transform: scale(1.05);
+  background: var(--primary-200);
+}
+
+/* Card Typography - Professional Healthcare */
+.card-title-enhanced {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Card Description Enhancement */
+.card-description-enhanced {
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+/* Card Action Button */
+.card-action-enhanced {
+  margin-top: auto;
+  text-align: center;
+}
+
+/* Scroll Reveal Animation */
+.card-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s var(--ease-out-expo);
+}
+
+.card-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Phase C: Scroll Animations & Page Transitions */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s var(--ease-in-out-smooth);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-500), var(--accent-500));
+  transform-origin: 0%;
+  z-index: 50;
+  transition: transform 0.1s ease-out;
+}
+
+/* Parallax Elements */
+.parallax {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Stagger Animation Classes */
+.stagger-container > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: staggerReveal 0.6s ease-out forwards;
+}
+
+.stagger-container > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-container > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-container > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-container > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-container > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-container > *:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes staggerReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth Scroll Enhancement */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus Management for Animations */
+.focus-trap {
+  position: relative;
+}
+
+.focus-trap::before,
+.focus-trap::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* Reduced Motion Support for Cards */
+@media (prefers-reduced-motion: reduce) {
+  .service-card-enhanced {
+    transform: none;
+  }
+  
+  .service-card-enhanced:hover {
+    transform: none;
+  }
+  
+  .card-content-enhanced {
+    transform: none;
+    opacity: 1;
+  }
+  
+  .card-magnetic-enhanced:hover {
+    transform: none;
+  }
+  
+  .card-icon-enhanced {
+    transform: none;
+  }
+  
+  .service-card-enhanced:hover .card-icon-enhanced {
+    transform: none;
+  }
+  
+  .card-reveal {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .card-skeleton {
+    animation: none;
+  }
+  
+  .btn-magnetic-container:hover {
+    transform: none;
+  }
+  
+  .btn-enhanced-primary:hover,
+  .btn-enhanced-secondary:hover,
+  .btn-enhanced-accent:hover {
+    transform: none;
+  }
+  
+  /* Phase C Reduced Motion */
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  
+  .parallax {
+    transform: none !important;
+  }
+  
+  .stagger-container > * {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Phase C Form Animations */
+  .form-field-enhanced {
+    transition: all 0.2s ease-out;
+  }
+  
+  .form-field-enhanced input,
+  .form-field-enhanced textarea {
+    transition: all 0.2s ease-out;
+  }
+  
+  .form-success-modal {
+    backdrop-filter: blur(8px);
+  }
+  
+  .form-loading-spinner {
+    animation: spin 1s linear infinite;
+  }
+}
+
+/* Phase C: Navigation & Micro-Interactions - Updated */
+.enhanced-nav {
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease-out;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-item-active {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item-active::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-500), var(--accent-500));
+  border-radius: 1px;
+}
+
+.mobile-menu-enter {
+  opacity: 0;
+  transform: scale(0.95) translateY(-10px);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: all 0.3s ease-out;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: scale(0.95) translateY(-10px);
+  transition: all 0.2s ease-out;
+}
+
+/* Micro-Interaction Effects */
+.micro-pulse {
+  animation: microPulse 2s ease-in-out infinite;
+}
+
+@keyframes microPulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: scale(1.05); 
+    opacity: 0.8; 
+  }
+}
+
+.micro-bounce {
+  animation: microBounce 2s ease-in-out infinite;
+}
+
+@keyframes microBounce {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-5px); 
+  }
+}
+
+.micro-float {
+  animation: microFloat 3s ease-in-out infinite;
+}
+
+@keyframes microFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-3px) rotate(1deg); 
+  }
+  50% { 
+    transform: translateY(-6px) rotate(0deg); 
+  }
+  75% { 
+    transform: translateY(-3px) rotate(-1deg); 
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(8, 145, 178, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-500), var(--accent-500));
+  transform-origin: 0%;
+  z-index: 1000;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Loading States */
+.skeleton-loader {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Accessibility Enhancements */
+.focus-visible-enhanced:focus-visible {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skip-link-enhanced {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary-600);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1001;
+  transition: top 0.3s;
+}
+
+.skip-link-enhanced:focus {
+  top: 6px;
+}
+
+/* Mobile Card Optimizations */
+@media (max-width: 640px) {
+  .service-card-enhanced {
+    transform: none !important;
+  }
+  
+  .service-card-enhanced:hover {
+    transform: none !important;
+  }
+  
+  .card-magnetic-enhanced:hover {
+    transform: none !important;
+  }
+}
+
+/* Clinic Map Component Styles */
+.clinic-map-container {
+  @apply relative overflow-hidden rounded-xl shadow-lg border border-neutral-200;
+  transition: all 0.3s ease;
+  min-height: 400px;
+}
+
+.clinic-map-container:hover {
+  @apply shadow-xl border-primary-200;
+}
+
+.clinic-map-iframe {
+  @apply w-full h-full border-0;
+  min-height: 400px;
+}
+
+.clinic-map-overlay {
+  @apply absolute top-4 left-4 bg-white/95 backdrop-blur-sm 
+         rounded-lg px-4 py-3 shadow-lg border border-white/20
+         transition-all duration-300 z-10;
+  max-width: 280px;
+}
+
+.clinic-map-overlay:hover {
+  @apply bg-white shadow-xl;
+}
+
+.clinic-map-title {
+  @apply font-semibold text-neutral-900 text-base;
+  font-family: 'Poppins', sans-serif;
+}
+
+.clinic-map-address {
+  @apply text-neutral-600 text-sm mt-1 leading-relaxed;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Responsive Map Styles */
+@media (max-width: 768px) {
+  .clinic-map-container {
+    min-height: 300px;
+  }
+  
+  .clinic-map-iframe {
+    min-height: 300px;
+  }
+  
+  .clinic-map-overlay {
+    @apply top-2 left-2 right-2;
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .clinic-map-container {
+    min-height: 250px;
+  }
+  
+  .clinic-map-iframe {
+    min-height: 250px;
+  }
+}
+
+/* Map Action Buttons */
+.clinic-map-container .absolute.bottom-4.right-4 {
+  @apply flex gap-2 z-20;
+}
+
+.clinic-map-container button {
+  @apply backdrop-blur-sm transition-all duration-200;
+}
+
+.clinic-map-container button:hover {
+  @apply transform scale-105;
 }
