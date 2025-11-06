@@ -1,0 +1,92 @@
+MIT License
+
+Copyright (c) 2025 Gabriel Family Clinic
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+HEALTHCARE COMPLIANCE NOTICE
+================================================================================
+
+This software is designed for healthcare applications and must comply with
+applicable healthcare regulations including but not limited to:
+
+- Health Insurance Portability and Accountability Act (HIPAA)
+- Health Information Technology for Economic and Clinical Health Act (HITECH)
+- General Data Protection Regulation (GDPR) where applicable
+- Americans with Disabilities Act (ADA)
+- Web Content Accessibility Guidelines (WCAG) 2.1 Level AAA
+
+Users of this software are responsible for ensuring compliance with all
+applicable healthcare privacy, security, and accessibility regulations in
+their jurisdiction.
+
+================================================================================
+HEALTHCARE DISCLAIMER
+================================================================================
+
+This software is intended for use in healthcare settings and should be used
+in conjunction with qualified medical professionals. The software does not
+provide medical advice, diagnosis, or treatment. Users should consult with
+qualified healthcare providers for medical decisions.
+
+The maintainers of this software are not responsible for any medical decisions
+made based on information provided by this software.
+
+================================================================================
+ACCESSIBILITY COMMITMENT
+================================================================================
+
+This project is committed to providing an accessible experience for all users,
+including those with disabilities. We strive to meet Web Content Accessibility
+Guidelines (WCAG) 2.1 Level AAA standards.
+
+If you encounter any accessibility barriers, please contact us so we can
+address them promptly.
+
+================================================================================
+ATTRIBUTION
+================================================================================
+
+If you use this software in your project, please consider adding attribution:
+
+```
+Powered by Gabriel Family Clinic Platform
+https://github.com/nordeim/Gabriel-Family-Clinic
+```
+
+================================================================================
+SUPPORT AND CONTACT
+================================================================================
+
+For technical support, questions, or accessibility concerns:
+- GitHub Issues: https://github.com/nordeim/Gabriel-Family-Clinic/issues
+- Healthcare Information: +1-555-CLINIC
+- Emergency: +1-555-URGENT
+
+For medical content accuracy questions, please consult with qualified
+medical professionals in your jurisdiction.
+
+================================================================================
+LICENSE VERSION
+================================================================================
+
+Version: 1.0
+Date: November 5, 2025
+License Type: MIT with Healthcare Compliance Addendum
